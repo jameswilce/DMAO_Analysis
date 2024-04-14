@@ -2,8 +2,8 @@
 fetch("dmao.json")
   .then((response) => response.json())
   .then((data) => {
-    let specObj = [1647421390664];
-    // const  specObj = Object.keys(data.guest).filter(key => typeof data.guest[key]== 'object');
+    //let specObj = [1647421390664];
+     const  specObj = Object.keys(data.guest).filter(key => typeof data.guest[key]== 'object');
     const tbody = document.querySelector("#guestTable tbody");
 
     for (let i = 0; i < specObj.length; i++) {
