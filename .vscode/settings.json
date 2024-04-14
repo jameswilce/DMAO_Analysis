@@ -1,0 +1,7 @@
+{
+  "livePreview.httpHeaders": {
+    "Accept-Ranges": "bytes"
+  },
+  "livePreview.portNumber": 3000,
+  "livePreview.openPreviewTarget": "External Browser"
+}
