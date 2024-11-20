@@ -94,9 +94,9 @@ fetch("dmao.json")
                       row.appendChild(cellInt);
                     }
                     // Check if the smoothVal property exists
-                    if (guest[key].hasOwnProperty("smoothVal")) {
+                    if (drawingLog[key].hasOwnProperty("smoothVal")) {
                       const cellSmooth = document.createElement("td");
-                      cellSmooth.textContent = guest[key].smoothVal;
+                      cellSmooth.textContent = drawingLog[key].smoothVal;
                       row.appendChild(cellSmooth);
                     } else {
                       const cellSmooth = document.createElement("td");
