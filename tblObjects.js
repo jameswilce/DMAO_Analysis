@@ -21,19 +21,6 @@ fetch("dmao.json")
           row.appendChild(cellk1);
           row.appendChild(cellk2);
 
-        /** Note: This is the raw output of RGBACol key
-        // Check if the RGBACol property exists
-        if (guest[key].hasOwnProperty("RGBACol")) {
-          const cellrgb = document.createElement("td");
-          cellrgb.textContent = guest[key].RGBACol;
-          row.appendChild(cellrgb);
-        }else { 
-          const cellrgb = document.createElement("td");
-          cellrgb.textContent = "No colour found.";
-          row.appendChild(cellrgb);
-        }
-         */
-
           // This filters the RGBACol to show first 3 elements (it removes the ,255 and any right/left tags)
           if (guest[key].hasOwnProperty("RGBACol")) {
             const rgbCol = guest[key].RGBACol;
@@ -110,6 +97,10 @@ fetch("dmao.json")
                     if (guest[key].hasOwnProperty("smoothVal")) {
                       const cellSmooth = document.createElement("td");
                       cellSmooth.textContent = guest[key].smoothVal;
+                      row.appendChild(cellSmooth);
+                    } else {
+                      const cellSmooth = document.createElement("td");
+                      cellSmooth.textContent = "No parameter found.";
                       row.appendChild(cellSmooth);
                     }
 
