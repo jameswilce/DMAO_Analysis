@@ -7,17 +7,56 @@
   </head>
 
   <body>
-    <h1>DMAO - Data Analysis</h1>
+    <h1 align="center">DMAO - Data Analysis</h1>
 
-    <p>Please note table rows will load in a moment...</p>
-    <table id="guestTable" class="styled-table">
+<table id="filterTable" class="filter-table" width=40% align="center">
+  <tr>
+    <th>Filters</th>
+    <th><select id="odourSelect" onchange="filterTable()">
+      <option value="">--Select an Odour--</option>
+      <option value="A">Odour A</option>
+      <option value="B">Odour B</option>
+      <option value="C">Odour C</option>
+    </select></td>
+    <th><select id="familiaritySelect" onchange="filterTable()">
+      <option value="">--Select Familiarity--</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+    </select></td>
+    <th><select id="hedonicitySelect" onchange="filterTable()">
+      <option value="">--Select Hedonicity--</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+    </select></td>
+    <th><select id="intensitySelect" onchange="filterTable()">
+      <option value="">--Select Intensity--</option>
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+    </select></td>
+</table>
+
+    <table id="guestTable" class="styled-table" width=80%>
       <thead>
         <tr>
           <th>Key (L1)</th>
           <th>Key (L2)</th>
           <th>RGBA</th>
           <th>Drawing </br> Colour</th>
-          <th>Drawing </br> Black</th>
           <th>Odour</th>
           <th>Familiarity</th>
           <th>Hedonicity</th>
@@ -32,8 +71,7 @@
     </table>
 
     <script src="console.js"></script>
-    <script src="tblObjects.js"></script>
+    <script src="tblObjects_updated.js"></script>
 
   </body>
 </html>
-    <table id="guestTable" class="styled-table" width=80%>

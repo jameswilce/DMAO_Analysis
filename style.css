@@ -1,9 +1,21 @@
+.filter-table {
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  word-wrap: break-word;
+  background-color: #333333;
+  text-align: center;
+  font-family: sans-serif;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  color: white;
+}
+
 .styled-table {
   border-collapse: collapse;
-  margin: 25px 0;
+  margin: 10px 0;
   font-size: 0.9em;
+  border-radius: 10px;
   font-family: sans-serif;
-  min-width: 400px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   word-wrap: break-word;
   border: 1px solid black;
@@ -12,49 +24,26 @@
 .styled-table thead th {
   background-color: #333333;
   text-align: center;
-}
-
-.styled-table th,
-.styled-table td {
-    padding: 12px 15px;
-    border: 1px solid black;
-}
-
-.styled-table tbody tr:last-of-type {
-  border-bottom: 2px solid #333333;
-}
-
-th,
-td {
-
-  padding: 12px 15px;
-  text-align: center;
-}
-
-th {
-  position: sticky;
-  top: 0;
-  background-color: #005493;
   color: white;
   font-weight: bold;
+  position: sticky;
+  top: 0;
+  width: 10%;
 }
 
-tr:nth-child(odd) {
-  background-color: #c4c1c1;
+.styled-table td {
+  padding: 12px 15px;
   border: 1px solid black;
 }
 
-tr:hover {
-  border: 2px solid blue;
-}
-
-th,
-td:first-child {
-  text-align: center;
-
+h1 {
+  font-size: 12;
+  font-family: sans-serif;
 }
 
 h2 {
+  font-size: 10;
+  font-family: sans-serif;
   font-weight: bold;
   font-style: underline;
 }
@@ -65,4 +54,3 @@ canvas {
   display: block;
   padding: 10px;
 }
-
