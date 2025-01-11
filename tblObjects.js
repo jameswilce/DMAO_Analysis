@@ -111,18 +111,6 @@ fetch("dmao.json")
             cellInt.textContent = guest[key].Intensity;
             row.appendChild(cellInt);
           }
-
-          // Check if the smoothVal property exists in drawingLog
-          if (drawingLog[key] && drawingLog[key].hasOwnProperty("smoothVal")) {
-            const cellSmooth = document.createElement("td");
-            cellSmooth.textContent = drawingLog[key].smoothVal;
-            row.appendChild(cellSmooth);
-          } else {
-            const cellSmooth = document.createElement("td");
-            cellSmooth.textContent = "No parameter found.";
-            row.appendChild(cellSmooth);
-          }
-
           tbody.appendChild(row);
         }
       }
