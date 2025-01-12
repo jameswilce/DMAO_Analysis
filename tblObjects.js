@@ -1,8 +1,8 @@
 function filterTable() {
     const odourInput = document.getElementById("odourSelect").value.toLowerCase();
-    const familiarityInput = document.getElementById("familiarityFilter").value.toLowerCase();
-    const hedonicityInput = document.getElementById("hedonicityFilter").value.toLowerCase();
-    const intensityInput = document.getElementById("intensityFilter").value.toLowerCase();
+    const familiarityInput = document.getElementById("familiaritySelect").value.toLowerCase();
+    const hedonicityInput = document.getElementById("hedonicitySelect").value.toLowerCase();
+    const intensityInput = document.getElementById("intensitySelect").value.toLowerCase();
     
     const table = document.getElementById("guestTable");
     const rows = table.getElementsByTagName("tr");
@@ -38,7 +38,105 @@ fetch("dmao.json")
     const specObj = Object.keys(data.guest).filter(key => typeof data.guest[key] == 'object');
     const tbody = document.querySelector("#guestTable tbody");
 
-    for (let i = 0; i < specObj.length; i++) {
+const initialLoadCount = 50; // Number of rows to load initially
+const remainingRows = []; // Array to hold remaining rows
+
+for (let i = 0; i < specObj.length; i++) {
+    const guest = data.guest[specObj[i]]; // Get the guest object
+    const excludedKeys = ["age", "gender", "lang", "region"]; // These keys will not be displayed in the table
+
+    // Access the drawingLog
+    const drawingLog = data.drawingLog || {};
+
+    // Iterate through the keys of the guest object
+    for (const key in guest) {
+        if (guest.hasOwnProperty(key) && !excludedKeys.includes(key)) {
+            const row = document.createElement("tr");
+            const cellk1 = document.createElement("td");
+            const cellk2 = document.createElement("td");
+            cellk1.textContent = specObj[i];
+            cellk2.textContent = key;
+            row.appendChild(cellk1);
+            row.appendChild(cellk2);
+
+            // This filters the RGBACol to show first 3 elements (it removes the ,255 and any right/left tags)
+            if (guest[key].hasOwnProperty("RGBACol")) {
+                const rgbCol = guest[key].RGBACol;
+                const cellrgb = document.createElement("td");
+                if (rgbCol.length >= 3) {
+                    cellrgb.textContent = rgbCol.slice(0, 3).join(",");
+                } else {
+                    cellrgb.textContent = "No colour found.";
+                }
+                row.appendChild(cellrgb);
+            } else {
+                const cellrgb = document.createElement("td");
+                cellrgb.textContent = "No colour found.";
+                row.appendChild(cellrgb);
+            }
+
+            // Check if the drawingVertices property exists
+            if (guest[key].hasOwnProperty("drawingVertices")) {
+                const cellDrawColour = document.createElement("td");
+                cellDrawColour.textContent = guest[key].drawingVertices;
+                const drawingColour = guest[key].RGBACol;
+                row.appendChild(drawShape(cellDrawColour.textContent, drawingColour));
+            } else {
+                const cellDrawColour = document.createElement("td");
+                cellDrawColour.textContent = "No drawing found.";
+                row.appendChild(cellDrawColour);
+            }
+
+            // Check if the odourselection property exists
+            if (guest[key].hasOwnProperty("odourselection")) {
+                const cellodour = document.createElement("td");
+                cellodour.textContent = guest[key].odourselection;
+                row.appendChild(cellodour);
+            }
+
+            // Check if the Familiarity property exists
+            if (guest[key].hasOwnProperty("Familiarity")) {
+                const cellFam = document.createElement("td");
+                cellFam.textContent = guest[key].Familiarity;
+                row.appendChild(cellFam);
+            }
+
+            // Check if the Hedonicity property exists
+            if (guest[key].hasOwnProperty("Hedonicity")) {
+                const cellHed = document.createElement("td");
+                cellHed.textContent = guest[key].Hedonicity;
+                row.appendChild(cellHed);
+            }
+
+            // Check if the Intensity property exists
+            if (guest[key].hasOwnProperty("Intensity")) {
+                const cellInt = document.createElement("td");
+                cellInt.textContent = guest[key].Intensity;
+                row.appendChild(cellInt);
+            }
+
+            // Store the row for later loading
+            remainingRows.push(row);
+            
+            // Append only the first 50 rows initially
+            if (i < initialLoadCount) {
+                tbody.appendChild(row);
+            }
+        }
+    }
+}
+
+// Load remaining rows in the background
+setTimeout(loadRemainingRows, 1000); // Load remaining rows after 1 second
+
+function loadRemainingRows() {
+    remainingRows.forEach(row => {
+        tbody.appendChild(row);
+    });
+}
+    const rowsToLoad = 50; // Number of rows to load initially
+
+    for (let i = 0; i < Math.min(rowsToLoad, totalRows); i++) {
       const guest = data.guest[specObj[i]]; // Get the guest object
       const excludedKeys = ["age", "gender", "lang", "region"]; // These keys will not be displayed in the table
 
