@@ -8,11 +8,8 @@
 
   <body>
     <h1 align="center">DMAO - Data Analysis</h1>
-<button id="drawingOnly" onclick="location.href='drawings.html'">
-  View Drawings
-</button>
 
-<table id="filterTable" class="filter-table" width=40% align="center">
+<table id="filterTable" class="filter-table" align="center">
   <tr>
     <th>Filters</th>
     <th><select id="odourSelect" onchange="filterTable()">
@@ -51,6 +48,15 @@
       <option value="6">6</option>
       <option value="7">7</option>
     </select></td>
+    <td><button id="drawingOnly" onclick="location.href='drawings.html'">
+  View Drawings
+</button></br>
+<div id="rowCount" align="center">Rows: 0</div>
+</td>
+</tr>
+<tr>
+  <p></p>
+</tr>
 </table>
 
     <table id="guestTable" class="styled-table" width=80% align="center">

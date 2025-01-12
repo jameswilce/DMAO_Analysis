@@ -26,6 +26,8 @@
   color: white;
   font-weight: bold;
   width: 10%;
+  top: 0px;
+  position: sticky;
 }
 
 .styled-table td {
@@ -51,4 +53,10 @@ canvas {
   margin-right: auto;
   display: block;
   padding: 10px;
+}
+
+button {
+  background-color:steelblue;
+  color: white;
+  border-radius: 10px;
 }
