@@ -1,38 +1,3 @@
-function filterTable() {
-    const odourInput = document.getElementById("odourSelect").value.toLowerCase();
-    const familiarityInput = document.getElementById("familiaritySelect").value.toLowerCase();
-    const hedonicityInput = document.getElementById("hedonicitySelect").value.toLowerCase();
-    const intensityInput = document.getElementById("intensitySelect").value.toLowerCase();
-    
-    const table = document.getElementById("guestTable");
-    const cells = table.getElementsByTagName("td");
-
-    let filterCount = 0;
-
-    for (let i = 1; i < cells.length; i++) { // Start from 1 to skip the header row
-        const cells = rows[i].getElementsByTagName("td");
-        const odourCell = cells[4] ? cells[4].textContent.toLowerCase() : "";
-        const familiarityCell = cells[5] ? cells[5].textContent.toLowerCase() : "";
-        const hedonicityCell = cells[6] ? cells[6].textContent.toLowerCase() : "";
-        const intensityCell = cells[7] ? cells[7].textContent.toLowerCase() : "";
-
-        const odourMatch = odourCell.includes(odourInput);
-        const familiarityMatch = familiarityCell.includes(familiarityInput);
-        const hedonicityMatch = hedonicityCell.includes(hedonicityInput);
-        const intensityMatch = intensityCell.includes(intensityInput);
-
-        if (odourMatch && familiarityMatch && hedonicityMatch && intensityMatch) {
-            cells[i].style.display = ""; // Show the row
-            filterCount++;
-
-        } else {
-            cells[i].style.display = "none"; // Hide the row
-        }
-    }
-    document.getElementById('rowCount').innerText = `Results: ${filterCount}`;
-
-}
-
 fetch("dmao.json")
   .then((response) => response.json())
   .then((data) => {
@@ -59,14 +24,22 @@ fetch("dmao.json")
                     const drawingColour = guest[key].RGBACol;
                     cell.appendChild(drawShape(cellDrawColour.textContent, drawingColour));
                 } else {
-                    const cellDrawColour = document.createElement("td");
-                    cellDrawColour.textContent = "No drawing found.";
-                    cell.appendChild(cellDrawColour);
+                  continue;
                 }
+       //         if (guest[key].hasOwnProperty("drawingVertices")) {
+         //           const cellDrawColour = document.createElement("td");
+         //           cellDrawColour.textContent = guest[key].drawingVertices;
+         //           const drawingColour = guest[key].RGBACol;
+         //           cell.appendChild(drawShape(cellDrawColour.textContent, drawingColour));
+         //       } else {
+          //          const cellDrawColour = document.createElement("td");
+         //           cellDrawColour.textContent = "No drawing found.";
+        //            cell.appendChild(cellDrawColour);
+        //        }
                 row.appendChild(cell);
                 columnCount++;
 
-                // Start a new row after 8 cells
+                // Start a new row after 10 cells
                 if (columnCount === 10) {
                     tbody.appendChild(row);
                     row = document.createElement("tr");
