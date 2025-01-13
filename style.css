@@ -1,3 +1,19 @@
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color:white;
+    color: #333333;
+    padding: 10px;
+    text-align: center;
+    z-index: 1000; /* Ensure it stays above other content */
+}
+
+.content {
+    margin-top: 100px; /* Add margin to prevent content from being hidden behind the fixed header */
+}
+
 .filter-table {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
   word-wrap: break-word;
@@ -9,14 +25,17 @@
   color: white;
   margin-bottom: 10px;
 }
+
 .filter-table th {
   font-size: 14px;
 }
+
 .filter-table td {
   font-size: 12px;
 }
 
 .styled-table {
+  margin-top: 180px;
   border-collapse: collapse;
   font-size: 0.9em;
   border-radius: 10px;
@@ -32,14 +51,14 @@
   color: white;
   font-weight: bold;
   width: 10%;
-  top: 0px;
+  top: 180px;
   position: sticky;
 }
 
 .styled-table td {
   text-align: center;
-  padding: 12px 15px;
-  border: 1px solid black;
+  padding: 8px 8px;
+
 }
 
 h1 {
@@ -57,12 +76,12 @@ h2 {
 canvas {
   margin-left: auto;
   margin-right: auto;
-  display: block;
-  padding: 10px;
+
 }
 
 button {
-  background-color:steelblue;
-  color: white;
+  background-color: steelblue;
+  color: orange;
   border-radius: 10px;
+
 }

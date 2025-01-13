@@ -37,7 +37,7 @@ fetch("dmao.json")
   .then((response) => response.json())
   .then((data) => {
     const specObj = Object.keys(data.guest).filter(key => typeof data.guest[key] == 'object');
-    const tbody = document.querySelector("#guestTable tbody");
+    const tbody = document.querySelector("#drawingsTable tbody");
 
     let row = document.createElement("tr");
     let columnCount = 0;
@@ -67,7 +67,7 @@ fetch("dmao.json")
                 columnCount++;
 
                 // Start a new row after 8 cells
-                if (columnCount === 8) {
+                if (columnCount === 10) {
                     tbody.appendChild(row);
                     row = document.createElement("tr");
                     columnCount = 0;  
@@ -125,18 +125,8 @@ function drawShape(vertices, drawingColour) {
 }
 
 // Function to update the row count displayed above the guestTable
-function updateRowCount() {
-    const table = document.getElementById('guestTable');
-    const rowCount = table.getElementsByTagName('tbody')[0].getElementsByTagName('tr').length;
-    document.getElementById('rowCount').innerText = `Results: ${rowCount}`;
-}
-
-// Call this function whenever the table is populated or filtered
-// For example, you can call it after adding rows to the table
-
-// Function to update the row count displayed above the guestTable
 function updateCellCount() {
-    const table = document.getElementById('guestTable');
-    const cellCount = table.getElementsByTagName('tbody')[0].getElementsByTagName('td').length;
+    const table = document.getElementById('drawingsTable');
+    const cellCount = table.getElementsByTagName('tbody')[0].getElementsByTagName('td').length /2;  // divide result by 2 to resolve duplicate count
     document.getElementById('cellCount').innerText = `Results: ${cellCount}`;
 }
