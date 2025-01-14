@@ -1,29 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>DMAO - Data Analysis</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="../libraries/p5.min.js"></script>
-  </head>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Drawings</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+     <div class="fixed-header">
+        <h1 align="center">DMAO - Data Analysis</h1>
+        <h2>Drawing View</h2>
+        <p><b>NOTE:</b> Errors have been removed where drawing verticies were missing.</p>
+<table id="filterTable" class="filter-table" align="center">
+  <tr>
+    <th><label><input type="radio" name="odourSelect" value="A"> Odour A</label></th>
+    <th><label><input type="radio" name="odourSelect" value="B"> Odour B</label></th>
+    <th><label><input type="radio" name="odourSelect" value="C"> Odour C</label></th>
+    <th><button id="drawingOnly" onclick="location.href='index.html'">View Table</button></th>
+  </tr>
+  <tr>
+    <th><div id="cellCount" align="left">Results: 0</div></th>
+    <th></th>
+    <th></th>
+    <th><button id="drawingOnly" onclick="location.href='index.html'">Refresh</button></th>
 
-  <body>
-    <div class="fixed-header">
-      <h1 align="center">DMAO - Data Analysis</h1>
-      <p id="stickybtn" align="center" margin="10px"><button id="drawingOnly" onclick="location.href='index.html'">Show Table</button></p>
+  </tr>
+</table>
     </div>
-
-
-    <table id="drawingsTable" class="styled-table" width=80% align="center">
-
-      <tbody>
-
-      <tbody>
-
-      </tbody>
+    <table id="drawingsTable" class="styled-table" align="center">
+        <tbody>
+            <!-- Drawings will be populated here -->
+        </tbody>
     </table>
-
-    <script src="console.js"></script>
-    <script src="viewDrawings.js"></script>
-
-  </body>
+   
+    <script src="viewDrawings radio.js"></script>
+</body>
 </html>

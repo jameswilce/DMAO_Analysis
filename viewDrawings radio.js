@@ -6,7 +6,7 @@ fetch("dmao.json")
 
     let row = document.createElement("tr");
 
-// Add event listener to the radio buttons
+    // Add event listener to the radio buttons
     const odourRadios = document.querySelectorAll('input[name="odourSelect"]');
     odourRadios.forEach(radio => {
       radio.addEventListener('change', updateDrawings);

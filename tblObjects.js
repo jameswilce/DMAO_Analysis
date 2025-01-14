@@ -80,9 +80,10 @@ for (let i = 0; i < specObj.length; i++) {
                 const drawingColour = guest[key].RGBACol;
                 row.appendChild(drawShape(cellDrawColour.textContent, drawingColour));
             } else {
-                const cellDrawColour = document.createElement("td");
-                cellDrawColour.textContent = "No drawing found.";
-                row.appendChild(cellDrawColour);
+                continue;        
+                //const cellDrawColour = document.createElement("td");
+                //cellDrawColour.textContent = "No drawing found.";
+                //row.appendChild(cellDrawColour);
             }
 
             // Check if the odourselection property exists

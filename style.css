@@ -1,3 +1,6 @@
+body {
+  font-family: sans-serif;
+}
 .fixed-header {
     position: fixed;
     top: 0;
@@ -11,7 +14,7 @@
 }
 
 .content {
-    margin-top: 100px; /* Add margin to prevent content from being hidden behind the fixed header */
+    margin-top: 230px; /* Add margin to prevent content from being hidden behind the fixed header */
 }
 
 .filter-table {
@@ -23,7 +26,7 @@
   padding: 10px;
   border-radius: 10px;
   color: white;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .filter-table th {
@@ -35,7 +38,8 @@
 }
 
 .styled-table {
-  margin-top: 180px;
+  border-top: #333333;
+  margin-top: 265px;
   border-collapse: collapse;
   font-size: 0.9em;
   border-radius: 10px;
@@ -51,7 +55,7 @@
   color: white;
   font-weight: bold;
   width: 10%;
-  top: 180px;
+  top: 265px;
   position: sticky;
 }
 
