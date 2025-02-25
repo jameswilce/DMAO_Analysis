@@ -3,5 +3,8 @@
     "Accept-Ranges": "bytes"
   },
   "livePreview.portNumber": 3000,
-  "livePreview.openPreviewTarget": "External Browser"
+  "livePreview.openPreviewTarget": "External Browser",
+  "python.analysis.aiCodeActions": {
+    
+  }
 }
